@@ -5,8 +5,8 @@
    - Fix the model installed above at line 64 ./server1/build_model.py
    - Fix the model installed above at line 42 ./server1/predict_img.py
 4. Now you can RUN it now
-RUN: use 2 terminal
-- python predict_img.py in ./server1
-- npm start in ./demo
-- Open the localhost at port 3000 (http://localhost:3000/) and enjoy them
-- This process may take you a moment, please wait
+    RUN: use 2 terminal
+        - python predict_img.py in ./server1
+        - npm start in ./demo
+        - Open the localhost at port 3000 (http://localhost:3000/) and enjoy them
+        - This process may take you a moment, please wait
