@@ -1,0 +1,20 @@
+HAM_0002198,ISIC_0024314,nv,histo,75.0,male,lower extremity,vidir_modern
+HAM_0007538,ISIC_0024315,mel,histo,55.0,male,trunk,vidir_modern
+HAM_0002718,ISIC_0024316,nv,follow_up,55.0,male,back,vidir_molemax
+HAM_0002450,ISIC_0024318,df,consensus,65.0,female,lower extremity,vidir_modern
+HAM_0001901,ISIC_0026274,nv,follow_up,40.0,female,trunk,vidir_molemax
+HAM_0000696,ISIC_0026277,bkl,confocal,75.0,male,face,vidir_modern
+HAM_0003654,ISIC_0026283,nv,follow_up,50.0,female,trunk,vidir_molemax
+HAM_0003278,ISIC_0026537,nv,follow_up,45.0,female,trunk,vidir_molemax
+HAM_0006929,ISIC_0026542,nv,follow_up,55.0,male,trunk,vidir_molemax
+HAM_0000436,ISIC_0026547,nv,follow_up,45.0,male,trunk,vidir_molemax
+HAM_0003769,ISIC_0027692,nv,follow_up,50.0,female,trunk,vidir_molemax
+HAM_0002176,ISIC_0027697,nv,histo,40.0,male,upper extremity,vidir_modern
+HAM_0001829,ISIC_0027779,nv,follow_up,70.0,male,abdomen,vidir_molemax
+HAM_0003005,ISIC_0028304,nv,histo,60.0,female,back,rosendahl
+HAM_0000693,ISIC_0028310,nv,histo,40.0,male,neck,rosendahl
+HAM_0002516,ISIC_0028315,nv,follow_up,35.0,female,lower extremity,vidir_molemax
+HAM_0005047,ISIC_0029105,nv,follow_up,45.0,female,face,vidir_molemax
+HAM_0005616,ISIC_0029107,bkl,consensus,80.0,male,face,vidir_molemax
+HAM_0003964,ISIC_0029111,nv,follow_up,45.0,female,back,vidir_molemax
+HAM_0007062,ISIC_0029116,nv,follow_up,50.0,female,trunk,vidir_molemax
