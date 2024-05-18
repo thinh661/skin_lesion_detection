@@ -39,7 +39,7 @@ output = Dense(7, activation='softmax')(output)
 model = Model(inputs=irv2.input, outputs=output)
 model.summary()
 
-model.load_weights(r"D:\WorkSpace_Thinh1\Nhom15-Parallel-Source\ReactJSParallel\server1\IRV2+SA.hdf5")
+model.load_weights(r"D:\WorkSpace_Thinh1\GUI_DataMining\IRV2+SA.hdf5")
 
 app = Flask(__name__)
 CORS(app)
@@ -54,9 +54,7 @@ def process_image(image_path):
     predicted_probability = np.max(predicted, axis=1)
 
     result = {
-        'predicted_class': int(predicted_class[0]),
-        'predicted_probability': float(predicted_probability[0]),
-        'message': f'Predicted class: {predicted_class[0]} with probability: {predicted_probability[0] * 100:.2f}%'
+        'message': (int(predicted_class[0]),float(predicted_probability[0]))
     }
     return result
 

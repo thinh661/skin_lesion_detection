@@ -7,46 +7,59 @@ function Interface() {
   const [message, setMessage] = useState(''); // Thêm state để lưu trữ thông báo trả về từ API
   const [image, setImage] = useState(null);
 
+  const diseaseNames = [
+    "Actinic Keratosis",
+    "Basal Cell Carcinoma",
+    "Benign Keratosis",
+    "Dermatofibroma",
+    "Melanoma",
+    "Nevus",
+    "Vascular Lesion"
+  ];
+
+  const [diseaseResults, setDiseaseResults] = useState(Array(7).fill(null));
+
   const handleImageUpload = async (event) => {
     const file = event.target.files[0];
     const formData = new FormData();
     formData.append('image', file);
     setImage(URL.createObjectURL(file)); // Display the uploaded image
-
+  
     try {
       const response = await axios.post('http://localhost:5000/process_image', formData);
-      setResult(response.data.result_data); // Assuming response.data.result_data contains the result
-      setMessage(response.data.message); // Assuming response.data.message contains the message
+      setResult(response.data.message[0]); // Assuming response.data.message contains the predicted_class
+      setMessage(`The predicted disease is ${diseaseNames[response.data.message[0]]} with ${(response.data.message[1] * 100).toFixed(2)}% probability.`);
     } catch (error) {
       console.error(error);
     }
   };
+  
 
   return (
     <div className="container">
-      <meta charSet="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Blood Cancer Disease Classification</title>
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-      <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap" rel="stylesheet" />
-      <div className="header">
-        <h2>Welcome to the Skin Lesion Detection on Image</h2>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4bW-zOzOjbTwNXEvguVe1AawtNlG8Fqe1XJ7mmBKSsw&s" alt="Header" />
+      <div className="content">
+        <div className="header">
+          <h2>Skin Lesion Detection</h2>
+        </div>
+        <div className="upload-file-image">
+          <h4>Upload an Image</h4>
+          <input type="file" onChange={handleImageUpload} />
+        </div>
+        <div className="prediction-result">
+          <h3>Prediction</h3>
+          {message && <p className="message">{message}</p>}
+          <div className="disease-list">
+            {diseaseNames.map((disease, index) => (
+              <div key={index} className={`disease-item ${result === index ? 'predicted' : ''}`}>
+                <div className="disease-name">{disease}</div>
+                <div className="probability">{diseaseResults[index]}%</div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-      <div className="upload-file-image">
-        <h4>Upload the Image</h4>
-        <input type="file" onChange={handleImageUpload} />
-      </div>
-      <hr />
-      <div className="prediction-div">
+      <div className="background-image">
         {image && <img src={image} alt="Uploaded" />}
-        {result && (
-          <h3 className="h3_block">
-            The prediction of the image is <span>{result}</span>.
-          </h3>
-        )}
-        {message && <p>{message}</p>} {/* Hiển thị thông báo trả về từ API */}
       </div>
     </div>
   );

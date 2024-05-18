@@ -61,4 +61,4 @@ model = Model(inputs=irv2.input, outputs=output)
 model.summary()
 
 from tensorflow.keras import models
-model.load_weights(r"D:\WorkSpace_Thinh1\Nhom15-Parallel-Source\ReactJSParallel\server1\IRV2+SA.hdf5")
+model.load_weights(r"D:\WorkSpace_Thinh1\GUI_DataMining\IRV2+SA.hdf5")
