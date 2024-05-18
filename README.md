@@ -30,5 +30,6 @@ This project focuses on detecting skin lesions using deep learning techniques. I
      python predict_img.py in ./server1
      npm start in ./demo
 **Finally, Open the localhost at port 3000 (http://localhost:3000/) and enjoy them**\
+You can get the test data i provide at .server1/data_test/ISIC2018_Task3_Test_Images in this project.\
 **This process may take you a moment, please wait**\
 **If you can't find my model, pls contact me at : (thinh1.work@gmail.com)**\
