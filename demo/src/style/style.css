@@ -1,65 +1,153 @@
 body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #56c1d9;
   margin: 0;
   padding: 0;
-  font-size: 18px;
-  font-family: 'Source Code Pro', monospace;
-  background-color: #56c1d9;
-  color: white;
+}
+
+
+.container {
+  text-align: center;
+  padding: 20px;
 }
 
 .header {
-  text-align: center;
-  text-decoration: underline;
-  text-transform: uppercase;
-  font-size: 15px;
+  margin-bottom: 20px;
 }
 
-.header img {
-  width: 90%;
-  height: 250px;
-  margin: 5px auto;
+.header .title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.header-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 300px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+
+
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0.5;
+}
+
+.nav-button.left {
+  left: 10px;
+}
+
+.nav-button.right {
+  right: 10px;
+}
+
+.nav-button:hover {
+  opacity: 1;
+}
+
+.dots-container {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: white;
 }
 
 .upload-file-image {
-  text-align: center;
+  margin-bottom: 20px;
 }
 
-.upload-file-image input {
-  font-size: 15px;
-  color: black;
-  font-family: 'Source Code Pro', monospace;
+.upload-box {
+  display: inline-block;
+  padding: 20px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.prediction-div {
-  text-align: center;
+.upload-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
 }
 
-.prediction-div img {
-  width: 300px;
-  margin: 5px;
-}
-
-.prediction-div h3 {
-  font-size: 20px;
-}
-
-.hr {
-  color: white;
-  background-color: white;
-  width: 600px;
-}
-
-span {
-  text-transform: uppercase;
-}
-
-.footer-file {
-  width: 600px;
-  margin: auto;
-  text-align: center;
-}
-
-.prediction-div p { /* CSS cho đoạn text trả về từ API */
+.upload-input {
   font-size: 16px;
-  color: white;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
 }
+
+.upload-input:hover {
+  border-color: #aaa;
+}
+
+.uploaded-image {
+  margin-top: 20px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.predicted-disease {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  color: #333;
+}
+
+.predicted-disease span {
+  color: gold;
+}
+
+.prediction-message {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #555;
+}
+
+
