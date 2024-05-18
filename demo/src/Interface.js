@@ -16,9 +16,7 @@ function Interface() {
     "Nevus",
     "Vascular Lesion"
   ];
-
-  const [diseaseResults, setDiseaseResults] = useState(Array(7).fill(null));
-
+  
   const handleImageUpload = async (event) => {
     const file = event.target.files[0];
     const formData = new FormData();
@@ -27,8 +25,15 @@ function Interface() {
   
     try {
       const response = await axios.post('http://localhost:5000/process_image', formData);
-      setResult(response.data.message[0]); // Assuming response.data.message contains the predicted_class
-      setMessage(`The predicted disease is ${diseaseNames[response.data.message[0]]} with ${(response.data.message[1] * 100).toFixed(2)}% probability.`);
+      const predictedClass = response.data.message[0];
+      const predictedProbability = response.data.message[1] * 100;
+
+      setResult(predictedClass); // Assuming response.data.message contains the predicted_class
+      if (!isNaN(predictedProbability)) {
+        setMessage(`The predicted disease is ${diseaseNames[predictedClass]} with ${(predictedProbability).toFixed(2)}% probability.`);
+      } else {
+        setMessage(`The predicted disease is ${diseaseNames[predictedClass]}.`);
+      }
     } catch (error) {
       console.error(error);
     }
@@ -37,29 +42,27 @@ function Interface() {
 
   return (
     <div className="container">
-      <div className="content">
-        <div className="header">
-          <h2>Skin Lesion Detection</h2>
-        </div>
-        <div className="upload-file-image">
-          <h4>Upload an Image</h4>
-          <input type="file" onChange={handleImageUpload} />
-        </div>
-        <div className="prediction-result">
-          <h3>Prediction</h3>
-          {message && <p className="message">{message}</p>}
-          <div className="disease-list">
-            {diseaseNames.map((disease, index) => (
-              <div key={index} className={`disease-item ${result === index ? 'predicted' : ''}`}>
-                <div className="disease-name">{disease}</div>
-                <div className="probability">{diseaseResults[index]}%</div>
-              </div>
-            ))}
-          </div>
-        </div>
+      <meta charSet="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Skin Legion Detection</title>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+      <div className="header">
+        <h2>Skin Lesion Detection</h2>
+        <img className="header-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4bW-zOzOjbTwNXEvguVe1AawtNlG8Fqe1XJ7mmBKSsw&s" alt="Header" />
       </div>
-      <div className="background-image">
-        {image && <img src={image} alt="Uploaded" />}
+      <div className="upload-file-image">
+        <h4>Upload an Image</h4>
+        <input type="file" onChange={handleImageUpload} />
+      </div>
+      <hr />
+      <div className="prediction-div">
+        {image && <img className="uploaded-image" src={image} alt="Uploaded" />}
+        {result !== '' && (
+          <h3 className="predicted-disease">
+            The predicted disease is <span>{diseaseNames[result]}</span>.
+          </h3>
+        )}
+        {message !== '' && <p className="prediction-message">{message}</p>} {/* Hiển thị thông báo trả về từ API */}
       </div>
     </div>
   );
