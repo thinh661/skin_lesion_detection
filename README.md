@@ -21,7 +21,11 @@ This project focuses on detecting skin lesions using deep learning techniques. I
    - Fix the model installed above at line 42 ./server1/predict_img.py
   
 
-4. **Now you can RUN it now by terminal**
+4. **Install the NodeJS**
+
+5. **Install the requiements.txt**
+
+6. **Now you can RUN it now by terminal**
      ``` bash
      python predict_img.py in ./server1
      npm start in ./demo
